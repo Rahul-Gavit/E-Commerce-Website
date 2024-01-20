@@ -24,7 +24,7 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+        `${process.env.REACT_APP_API}api/v1/category/get-category`
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -43,7 +43,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+        `${process.env.REACT_APP_API}api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts(data.products);
@@ -57,7 +57,7 @@ const HomePage = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-count`
+        `${process.env.REACT_APP_API}api/v1/product/product-count`
       );
       setTotal(data?.total);
     } catch (error) {
@@ -74,7 +74,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+        `${process.env.REACT_APP_API}api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts([...products, ...data?.products]);
@@ -106,7 +106,7 @@ const HomePage = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/product/product-filters`,
+        `${process.env.REACT_APP_API}api/v1/product/product-filters`,
         {
           checked,
           radio,
@@ -158,7 +158,7 @@ const HomePage = () => {
             {products?.map((p) => (
               <div className="card m-2" key={p._id}>
                 <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                  src={`${process.env.REACT_APP_API}api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />
